@@ -18,7 +18,7 @@ class AppLanguageProvider extends ChangeNotifier {
 
   saveLanguage() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString("currentLanguage", appLanguage == 'en' ? 'en' : 'ar');
+    prefs.setString("currentLanguage", appLanguage);
   }
 
   loadLanguage() async {
