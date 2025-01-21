@@ -11,7 +11,12 @@ class CustomTextField extends StatelessWidget {
       this.hintStyle,
       this.labelStyle,
       this.prefixIcon,
-      this.suffixIcon});
+      this.suffixIcon,
+      this.isObscureText = false,
+      this.maxLines,
+      this.validator,
+      this.controller});
+  int? maxLines;
   String? hintText;
   TextStyle? hintStyle;
   TextStyle? labelStyle;
@@ -19,9 +24,17 @@ class CustomTextField extends StatelessWidget {
   Color? borderColor;
   Widget? prefixIcon;
   Widget? suffixIcon;
+  bool isObscureText;
+  String? Function(String?)? validator;
+  TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
+      validator: validator,
+      maxLines: maxLines ?? 1,
+      obscureText: isObscureText,
+      obscuringCharacter: "*",
       decoration: InputDecoration(
           prefixIcon: prefixIcon,
           suffixIcon: suffixIcon,

@@ -1,4 +1,5 @@
 import 'package:event_planning_app/providers/app_theme_provider.dart';
+import 'package:event_planning_app/ui/auth/login/login_screen.dart';
 import 'package:event_planning_app/ui/home_screen/language_bottom_sheet.dart';
 import 'package:event_planning_app/ui/home_screen/theme_bottom_sheet.dart';
 import 'package:event_planning_app/utils/app_colors.dart';
@@ -124,7 +125,10 @@ class _HomeScreenState extends State<ProfileTab> {
                     backgroundColor: AppColors.redColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16))),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      LoginScreen.routeName, (Route<dynamic> route) => false);
+                },
                 child: Row(
                   children: [
                     const Icon(

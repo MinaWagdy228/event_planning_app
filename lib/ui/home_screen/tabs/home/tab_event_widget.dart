@@ -5,8 +5,18 @@ import 'package:flutter/material.dart';
 class TabEventWidget extends StatelessWidget {
   String eventName;
   bool isSelected;
+  Color backgroundColor;
+  TextStyle textSelectedStyle;
+  TextStyle textUnselectedStyle;
+  Color? borderColor;
   TabEventWidget(
-      {super.key, required this.eventName, required this.isSelected});
+      {super.key,
+      required this.eventName,
+      required this.isSelected,
+      required this.backgroundColor,
+      required this.textSelectedStyle,
+      required this.textUnselectedStyle,
+      this.borderColor});
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +26,12 @@ class TabEventWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(
           horizontal: width * 0.04, vertical: height * 0.005),
       decoration: BoxDecoration(
-          color: isSelected ? AppColors.whiteColor : AppColors.transparentColor,
+          color: isSelected ? backgroundColor : AppColors.transparentColor,
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: AppColors.whiteColor, width: 2)),
+          border:
+              Border.all(color: borderColor ?? AppColors.whiteColor, width: 2)),
       child: Text(eventName,
-          style:
-              isSelected ? AppStyles.medium16Primary : AppStyles.medium16White),
+          style: isSelected ? textSelectedStyle : textUnselectedStyle),
     );
   }
 }
