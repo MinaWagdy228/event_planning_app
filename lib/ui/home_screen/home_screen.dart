@@ -1,4 +1,5 @@
 import 'package:event_planning_app/ui/home_screen/tabs/favorite/favorite_tab.dart';
+import 'package:event_planning_app/ui/home_screen/tabs/home/add_Event/add_event.dart';
 import 'package:event_planning_app/ui/home_screen/tabs/home/home_tab.dart';
 import 'package:event_planning_app/ui/home_screen/tabs/map/map_tab.dart';
 import 'package:event_planning_app/ui/home_screen/tabs/profile/profile_tab.dart';
@@ -30,6 +31,7 @@ List<Widget> tabs =[
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // add event and navigate to add event screen
+          Navigator.of(context).pushNamed(AddEvent.routeName);
         },
         child: const Icon(
           Icons.add,
